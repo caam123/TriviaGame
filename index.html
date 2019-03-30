@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css">
-    <script src="assets/javascript/app.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Rubik:100,300,400,500,700,900" rel="stylesheet">
+
 </head>
 <body>
+
     <!-- Header de back to Portfolio incluido en las tareas, pa que combines-->
     <nav>
         <div class="back-portfolio">
@@ -23,11 +25,30 @@
 <div class="container">
 
     <div class="row">    
-        <div class="main-title col align-self-center">
+        <div class="main-title col-md-12 col-12 align-self-center">
             <h1>Trivia Time!</h1>
+        </div>
+        <div class="timer col-12 align-self-center">
+            <p id="timer">
+                10
+            </p>  
+        </div>
+
+        <div class="boton col-4 align-self-center">
+                <button id="start">Start</button>
+            </div>  
+
+        <div class="containerPregunta">
+
+        </div>
+        <div class="containerOpciones">    
+            
         </div>
     </div>
 
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/app.js"></script>    
 
 </body>
 </html>
