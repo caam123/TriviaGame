@@ -2,6 +2,7 @@
 
 var timer = 10;
 var intervalId;
+var j = 0;
 
 
 // ----- AQUI VAN LAS FUNCIONES ------
@@ -49,21 +50,14 @@ var lasPreguntas = [
 
 function displayP(){
 
-    for (var j = 0; j < lasPreguntas.length; j++) {
-    
-    
+    $(".containerPregunta").append("<div class='pregunta col-md-12 col-12 align-self-center'>" + lasPreguntas[j].pregunta + "</div>");
 
+        // -- Despliega las opciones, convirtiendo parte del objeto en array ---
+        var opciones = Object.values(lasPreguntas[j].respuesta);
+        for (var i = 0; i < opciones.length; i++) {
+            $(".containerOpciones").append("<div class='opciones col-12'>"+ opciones[i] +"</div");
+        };     
 
-        $(".containerPregunta").append("<div class='pregunta col-md-12 col-12 align-self-center'>" + lasPreguntas[j].pregunta + "</div>");
-
-            // -- Despliega las opciones, convirtiendo parte del objeto en array ---
-            var opciones = Object.values(lasPreguntas[j].respuesta);
-            console.log(opciones);
-
-            for (var i = 0; i < opciones.length; i++) {
-                $(".containerOpciones").append("<div class='opciones col-12'>"+ opciones[i] +"</div");
-            };
-    }       
 };
 
 
