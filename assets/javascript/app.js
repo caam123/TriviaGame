@@ -29,11 +29,11 @@ var lasPreguntas = [
     {
         pregunta : "¿Cómo me llamo?",
         respuesta : {
-            a: "Claros",
-            b: "Carlos",
+            a: ["Claros", false],
+            b: ["Carlos", true],
             c : "Charlie Charlie",
         },
-        correctAnswer: "c"
+        imgURL: "",
     },
     {
        pregunta : "How old am I?",
@@ -42,8 +42,7 @@ var lasPreguntas = [
            b: "30",
            c: "40",
        },
-       correctAnswer: "a"
-
+       
     },
 ];
 
@@ -55,15 +54,22 @@ function displayP(){
         // -- Despliega las opciones, convirtiendo parte del objeto en array ---
         var opciones = Object.values(lasPreguntas[j].respuesta);
         for (var i = 0; i < opciones.length; i++) {
-            $(".containerOpciones").append("<div class='opciones col-12'>"+ opciones[i] +"</div");
+            $(".containerOpciones").append("<div class='opciones col-12' data-correct=" + opciones[i][1]+ ">" + opciones[i][0] +"</div");
         };     
     
 };
 
+function check(){
 
+    console.log($(this));
+
+
+};
 
 
 $("#start").click(function(){
     $(this).hide();
     displayP();
 }); 
+
+$(document).on("click", ".opciones", check);
