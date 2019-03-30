@@ -49,7 +49,7 @@ var lasPreguntas = [
 
 
 function displayP(){
-
+    run();
     $(".containerPregunta").append("<div class='pregunta col-md-12 col-12 align-self-center'>" + lasPreguntas[j].pregunta + "</div>");
 
         // -- Despliega las opciones, convirtiendo parte del objeto en array ---
@@ -57,7 +57,7 @@ function displayP(){
         for (var i = 0; i < opciones.length; i++) {
             $(".containerOpciones").append("<div class='opciones col-12'>"+ opciones[i] +"</div");
         };     
-
+    
 };
 
 
@@ -65,6 +65,5 @@ function displayP(){
 
 $("#start").click(function(){
     $(this).hide();
-    run();
-    setTimeout(displayP, 1000);
-});
+    displayP();
+}); 
