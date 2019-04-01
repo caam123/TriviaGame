@@ -56,8 +56,12 @@ var lasPreguntas = [
 
 
 function displayP(){
+    $(".imgAnswer").empty();
+    $(".containerPregunta").empty();
     $(".containerOpciones").empty();
     run();
+
+    setTimeout(score, 2000);
 
     $(".containerPregunta").append("<div class='pregunta col-md-12 col-12 align-self-center'>" + lasPreguntas[j].pregunta + "</div>");
 
@@ -69,31 +73,55 @@ function displayP(){
     
 };
 
+function score(){
+    if(j === lasPreguntas.length){
+        $(".imgAnswer").empty();
+        $(".containerPregunta").empty();
+        $(".opciones").hide() 
+        $("#timer").hide();
+    
+        $(".containerPregunta").append("<div class='respuesta col-md-12 col-12 align-self-center'>" + "Wins: "+ wins + "</div");
+        $(".containerPregunta").append("<div class='respuesta col-md-12 col-12 align-self-center'>" + "Wins: "+ losses + "</div");
+    
+        $("#start").text("Try Again");
+        $("#start").show();
+        j=0;
+    
+    };
+};
+
+
 function check(){
 var dataCorrect = ($(this).attr("data-correct"));
 
 stop();
+
 $(".containerPregunta").empty();
 $(".opciones").hide() 
 $("#timer").hide();
+$(".imgAnswer").empty();
 
 
 if (dataCorrect === "false") {
     $(".containerPregunta").append("<div class='respuesta col-md-12 col-12 align-self-center'>" + "Nope! The correct answer was " + lasPreguntas[j].correctAnswer + "</div");
     losses++;
 }else{
-    $(".containerPregunta").append("<div class='respuesta col-md-12 col-12 align-self-center'>" + "Yep, that's correct" + "</div");
+    $(".containerPregunta").append("<div class='respuesta col-md-12 col-12 align-self-center'>" + "Yep! That's correct" + "</div");
     wins++;
 }
-$("body").append($("<img>").attr("src", lasPreguntas[j].imgURL));
+$(".imgAnswer").append($("<img class='center'>").attr("src", lasPreguntas[j].imgURL));
 j++;
+
 setTimeout(displayP,2000);
+
+
 };
 
 
 $("#start").click(function(){
     $(this).hide();
     displayP();
+    $("#start").text("Start");
 }); 
 
 $(document).on("click", ".opciones", check);
