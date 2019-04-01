@@ -5,6 +5,7 @@ var intervalId;
 var j = 0;
 var wins = 0;
 var losses = 0;
+var unanswered = 0;
 
 // ----- AQUI VAN LAS FUNCIONES ------
 
@@ -186,13 +187,14 @@ function score(){
     
         $(".containerPregunta").append("<div class='respuesta score col-12 col-sm-6 align-self-center'>" + "Correct: "+ wins + "</div");
         $(".containerPregunta").append("<div class='respuesta score col-md-6 col-12 align-self-center'>" + "Wrong: "+ losses + "</div");
-
+        $(".containerPregunta").append("<div class='respuesta score col-md-6 col-12 align-self-center'>" + "Unanswered: "+ unanswered + "</div");
 
         $("#start").text("Try Again");
         $("#start").show();
         j=0;
         wins = 0;
         losses = 0;
+        unanswered = 0;
     
 };
 
@@ -214,8 +216,7 @@ if (dataCorrect === "false") {
     losses++;
 }else if (timer === 0){
     $(".containerPregunta").append("<div class='respuesta col-md-6 col-12 align-self-center incorrect'>" + "Time's up! The correct answer was " + lasPreguntas[j].correctAnswer + "</div");
-    losses++;
-
+    unanswered++;
 }else {
     $(".containerPregunta").append("<div class='respuesta col-md-6 col-12 align-self-center correct'>" + "Yep! That's correct" + "</div");
     wins++;
