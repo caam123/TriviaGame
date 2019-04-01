@@ -29,7 +29,7 @@ nav{
 
 .main-title{
     text-align: center;
-    padding: 2em;
+    padding: 1em;
 }
 h1{
     font-size: 4em;
@@ -146,10 +146,15 @@ button{
 
 /* Img Answer */
 
+
+.imgAnswer{
+    padding: 0;
+    margin: 0 auto;
+}
+
 .center{
 
     display:block;
     margin: 1em auto;
-   height: 300px;
-
+    height: 350px;
 }

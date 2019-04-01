@@ -210,14 +210,14 @@ $(".imgAnswer").empty();
 
 
 if (dataCorrect === "false") {
-    $(".containerPregunta").append("<div class='respuesta col-md-8 col-12 align-self-center incorrect'>" + "Nope! The correct answer was " + lasPreguntas[j].correctAnswer + "</div");
+    $(".containerPregunta").append("<div class='respuesta col-md-6 col-12 align-self-center incorrect'>" + "Nope! The correct answer was " + lasPreguntas[j].correctAnswer + "</div");
     losses++;
 }else if (timer === 0){
-    $(".containerPregunta").append("<div class='respuesta col-md-8 col-12 align-self-center incorrect'>" + "Time's up! The correct answer was " + lasPreguntas[j].correctAnswer + "</div");
+    $(".containerPregunta").append("<div class='respuesta col-md-6 col-12 align-self-center incorrect'>" + "Time's up! The correct answer was " + lasPreguntas[j].correctAnswer + "</div");
     losses++;
 
 }else {
-    $(".containerPregunta").append("<div class='respuesta col-md-8 col-12 align-self-center correct'>" + "Yep! That's correct" + "</div");
+    $(".containerPregunta").append("<div class='respuesta col-md-6 col-12 align-self-center correct'>" + "Yep! That's correct" + "</div");
     wins++;
 }
 $(".imgAnswer").append($("<img class='center'>").attr("src", lasPreguntas[j].imgURL));
