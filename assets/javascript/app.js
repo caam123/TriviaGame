@@ -12,6 +12,8 @@ var losses = 0;
 
 // --- Funcion del timer ---
 function run (){
+    timer=10;
+    $("#timer").text(timer);
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
 };
@@ -60,8 +62,9 @@ function displayP(){
     $(".containerPregunta").empty();
     $(".containerOpciones").empty();
     run();
-
-    setTimeout(score, 2000);
+    $("#timer").show();
+    console.log("timer working");
+ 
 
     $(".containerPregunta").append("<div class='pregunta col-md-12 col-12 align-self-center'>" + lasPreguntas[j].pregunta + "</div>");
 
@@ -70,7 +73,8 @@ function displayP(){
         for (var i = 0; i < opciones.length; i++) {
             $(".containerOpciones").append("<div class='opciones col-12' data-correct=" + opciones[i][1]+ ">" + opciones[i][0] +"</div");
         };     
-    
+
+     setTimeout(score,2000);
 };
 
 function score(){
@@ -80,15 +84,19 @@ function score(){
         $(".opciones").hide() 
         $("#timer").hide();
     
-        $(".containerPregunta").append("<div class='respuesta col-md-12 col-12 align-self-center'>" + "Wins: "+ wins + "</div");
-        $(".containerPregunta").append("<div class='respuesta col-md-12 col-12 align-self-center'>" + "Wins: "+ losses + "</div");
-    
+        $(".containerPregunta").append("<div class='respuesta score col-md-6 col-sm-6 align-self-center'>" + "Wins: "+ wins + "</div");
+        $(".containerPregunta").append("<div class='respuesta score col-md-6 col-sm-12 align-self-center'>" + "Wins: "+ losses + "</div");
         $("#start").text("Try Again");
         $("#start").show();
         j=0;
     
     };
 };
+
+//Esta funcion solo esconde el timer antes de mostrar el total score porque no supe como resolver esto de forma mas decente
+function hideTimer(){
+    $("#timer").hide();
+}
 
 
 function check(){
@@ -112,8 +120,7 @@ if (dataCorrect === "false") {
 $(".imgAnswer").append($("<img class='center'>").attr("src", lasPreguntas[j].imgURL));
 j++;
 
-setTimeout(displayP,2000);
-
+setTimeout(displayP,1000);
 
 };
 
@@ -121,7 +128,6 @@ setTimeout(displayP,2000);
 $("#start").click(function(){
     $(this).hide();
     displayP();
-    $("#start").text("Start");
 }); 
 
 $(document).on("click", ".opciones", check);

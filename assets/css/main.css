@@ -89,6 +89,10 @@ button{
     margin: 0 auto;
 }
 
+.score{
+    margin: 0.5em auto;
+}
+
 .containerPregunta{
     padding:0;
     width:100%;
@@ -123,7 +127,6 @@ button{
 
     display:block;
     margin: 1em auto;
-    min-width: 400px;
-    max-width:400px;
+   height: 300px;
 
 }
