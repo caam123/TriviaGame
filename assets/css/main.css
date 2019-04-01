@@ -87,21 +87,26 @@ h1{
     padding-top:.75em;
     text-align: center;
     border: 1px solid white;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     margin-bottom: .5em;
     margin:0 auto;
+    text-transform: uppercase;
 
 }
 
 .incorrect{
-    color: red;
-    background-color:rgba(255,255,255,0.8);
+    color: rgb(255, 255, 255);
+    background-color:rgb(182, 23, 44);
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 5px;
 }
 
 .correct{
-    background-color:rgba(255,255,255,0.8);
-    color: green;
+    background-color:rgb(63, 226, 117);
+    color: rgb(255, 255, 255);
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 5px;
 }
 
 
@@ -157,4 +162,5 @@ button{
     display:block;
     margin: 1em auto;
     height: 350px;
+
 }
