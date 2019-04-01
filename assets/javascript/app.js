@@ -3,7 +3,8 @@
 var timer = 10;
 var intervalId;
 var j = 0;
-
+var wins = 0;
+var losses = 0;
 
 // ----- AQUI VAN LAS FUNCIONES ------
 
@@ -14,6 +15,10 @@ function run (){
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
 };
+
+function stop(){
+    clearInterval(intervalId);
+}
 
 function decrement(){
     timer--;
@@ -27,28 +32,33 @@ function decrement(){
 // --- Funcion display de preguntas + respuestas
 var lasPreguntas = [
     {
-        pregunta : "¿Cómo me llamo?",
+        pregunta : "What is the capital City of Nevada?",
         respuesta : {
-            a: ["Claros", false],
-            b: ["Carlos", true],
-            c : "Charlie Charlie",
+            a: ["Las Vegas", false],
+            b: ["Reno", false],
+            c:["Carson City", true],
         },
-        imgURL: "",
+        imgURL: "assets/img/nevada.png",
+        correctAnswer: "Carson City",
     },
     {
-       pregunta : "How old am I?",
+       pregunta : "What is the Capital City of Texas?",
        respuesta: {
-           a: "20",
-           b: "30",
-           c: "40",
+           a: ["Dallas", false],
+           b: ["Austin", true],
+           c: ["San Antonio", false],
+
        },
-       
+       imgURL: "assets/img/texas.png",
+       correctAnswer: "Austin"
     },
 ];
 
 
 function displayP(){
+    $(".containerOpciones").empty();
     run();
+
     $(".containerPregunta").append("<div class='pregunta col-md-12 col-12 align-self-center'>" + lasPreguntas[j].pregunta + "</div>");
 
         // -- Despliega las opciones, convirtiendo parte del objeto en array ---
@@ -60,10 +70,24 @@ function displayP(){
 };
 
 function check(){
+var dataCorrect = ($(this).attr("data-correct"));
 
-    console.log($(this));
+stop();
+$(".containerPregunta").empty();
+$(".opciones").hide() 
+$("#timer").hide();
 
 
+if (dataCorrect === "false") {
+    $(".containerPregunta").append("<div class='respuesta col-md-12 col-12 align-self-center'>" + "Nope! The correct answer was " + lasPreguntas[j].correctAnswer + "</div");
+    losses++;
+}else{
+    $(".containerPregunta").append("<div class='respuesta col-md-12 col-12 align-self-center'>" + "Yep, that's correct" + "</div");
+    wins++;
+}
+$("body").append($("<img>").attr("src", lasPreguntas[j].imgURL));
+j++;
+setTimeout(displayP,2000);
 };
 
 
