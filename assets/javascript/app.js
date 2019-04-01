@@ -16,7 +16,7 @@ function run (){
 
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
-    timer=5;
+    timer=10;
     $("#timer").text(timer);
 
 };
@@ -172,7 +172,7 @@ function displayP(){
                 $(".containerOpciones").append("<div class='opciones col-md-8 col-12' data-correct=" + opciones[i][1]+ ">" + opciones[i][0] +"</div");
             };     
     }else{
-    setTimeout(score,2500);
+    setTimeout(score,500);
     }
 
 
