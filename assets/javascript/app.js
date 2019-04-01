@@ -15,7 +15,7 @@ function run (){
 
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
-    timer=10;
+    timer=5;
     $("#timer").text(timer);
 
 };
@@ -163,15 +163,15 @@ function displayP(){
         $("#timer").show();
         console.log("timer working"); 
     
-        $(".containerPregunta").append("<div class='pregunta col-md-12 col-12 align-self-center'>" + lasPreguntas[j].pregunta + "</div>");
+        $(".containerPregunta").append("<div class='pregunta col-md-8 col-12 align-self-center'>" + lasPreguntas[j].pregunta + "</div>");
     
             // -- Despliega las opciones, convirtiendo parte del objeto en array ---
             var opciones = Object.values(lasPreguntas[j].respuesta);
             for (var i = 0; i < opciones.length; i++) {
-                $(".containerOpciones").append("<div class='opciones col-12' data-correct=" + opciones[i][1]+ ">" + opciones[i][0] +"</div");
+                $(".containerOpciones").append("<div class='opciones col-md-8 col-12' data-correct=" + opciones[i][1]+ ">" + opciones[i][0] +"</div");
             };     
     }else{
-    setTimeout(score,500);
+    setTimeout(score,2500);
     }
 
 
@@ -209,11 +209,15 @@ $("#timer").hide();
 $(".imgAnswer").empty();
 
 
-if (dataCorrect === "false" || timer === 0) {
-    $(".containerPregunta").append("<div class='respuesta col-md-12 col-12 align-self-center'>" + "Nope! The correct answer was " + lasPreguntas[j].correctAnswer + "</div");
+if (dataCorrect === "false") {
+    $(".containerPregunta").append("<div class='respuesta col-md-8 col-12 align-self-center incorrect'>" + "Nope! The correct answer was " + lasPreguntas[j].correctAnswer + "</div");
     losses++;
-}else{
-    $(".containerPregunta").append("<div class='respuesta col-md-12 col-12 align-self-center'>" + "Yep! That's correct" + "</div");
+}else if (timer === 0){
+    $(".containerPregunta").append("<div class='respuesta col-md-8 col-12 align-self-center incorrect'>" + "Time's up! The correct answer was " + lasPreguntas[j].correctAnswer + "</div");
+    losses++;
+
+}else {
+    $(".containerPregunta").append("<div class='respuesta col-md-8 col-12 align-self-center correct'>" + "Yep! That's correct" + "</div");
     wins++;
 }
 $(".imgAnswer").append($("<img class='center'>").attr("src", lasPreguntas[j].imgURL));
