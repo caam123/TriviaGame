@@ -12,10 +12,12 @@ var losses = 0;
 
 // --- Funcion del timer ---
 function run (){
-    timer=10;
-    $("#timer").text(timer);
+
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
+    timer=10;
+    $("#timer").text(timer);
+
 };
 
 function stop(){
@@ -25,6 +27,11 @@ function stop(){
 function decrement(){
     timer--;
     $("#timer").text(timer);
+    if (timer === 0){
+        stop();
+        check();
+
+    }
     //$("#prueba").text(timer)
 
 };
@@ -58,45 +65,49 @@ var lasPreguntas = [
 
 
 function displayP(){
-    $(".imgAnswer").empty();
-    $(".containerPregunta").empty();
-    $(".containerOpciones").empty();
-    run();
-    $("#timer").show();
-    console.log("timer working");
- 
 
-    $(".containerPregunta").append("<div class='pregunta col-md-12 col-12 align-self-center'>" + lasPreguntas[j].pregunta + "</div>");
+    if(j < lasPreguntas.length){
 
-        // -- Despliega las opciones, convirtiendo parte del objeto en array ---
-        var opciones = Object.values(lasPreguntas[j].respuesta);
-        for (var i = 0; i < opciones.length; i++) {
-            $(".containerOpciones").append("<div class='opciones col-12' data-correct=" + opciones[i][1]+ ">" + opciones[i][0] +"</div");
-        };     
+        $(".imgAnswer").empty();
+        $(".containerPregunta").empty();
+        $(".containerOpciones").empty();
+        run();
+        $("#timer").show();
+        console.log("timer working"); 
+    
+        $(".containerPregunta").append("<div class='pregunta col-md-12 col-12 align-self-center'>" + lasPreguntas[j].pregunta + "</div>");
+    
+            // -- Despliega las opciones, convirtiendo parte del objeto en array ---
+            var opciones = Object.values(lasPreguntas[j].respuesta);
+            for (var i = 0; i < opciones.length; i++) {
+                $(".containerOpciones").append("<div class='opciones col-12' data-correct=" + opciones[i][1]+ ">" + opciones[i][0] +"</div");
+            };     
+    }else{
+    setTimeout(score,500);
+    }
 
-     setTimeout(score,2000);
+
 };
 
 function score(){
-    if(j === lasPreguntas.length){
         $(".imgAnswer").empty();
         $(".containerPregunta").empty();
-        $(".opciones").hide() 
+        $(".opciones").empty() 
         $("#timer").hide();
+        stop();
     
-        $(".containerPregunta").append("<div class='respuesta score col-md-6 col-sm-6 align-self-center'>" + "Wins: "+ wins + "</div");
-        $(".containerPregunta").append("<div class='respuesta score col-md-6 col-sm-12 align-self-center'>" + "Wins: "+ losses + "</div");
+        $(".containerPregunta").append("<div class='respuesta score col-12 col-sm-6 align-self-center'>" + "Correct: "+ wins + "</div");
+        $(".containerPregunta").append("<div class='respuesta score col-md-6 col-12 align-self-center'>" + "Wrong: "+ losses + "</div");
+
+
         $("#start").text("Try Again");
         $("#start").show();
         j=0;
+        wins = 0;
+        losses = 0;
     
-    };
 };
 
-//Esta funcion solo esconde el timer antes de mostrar el total score porque no supe como resolver esto de forma mas decente
-function hideTimer(){
-    $("#timer").hide();
-}
 
 
 function check(){
@@ -110,7 +121,7 @@ $("#timer").hide();
 $(".imgAnswer").empty();
 
 
-if (dataCorrect === "false") {
+if (dataCorrect === "false" || timer === 0) {
     $(".containerPregunta").append("<div class='respuesta col-md-12 col-12 align-self-center'>" + "Nope! The correct answer was " + lasPreguntas[j].correctAnswer + "</div");
     losses++;
 }else{
@@ -120,7 +131,7 @@ if (dataCorrect === "false") {
 $(".imgAnswer").append($("<img class='center'>").attr("src", lasPreguntas[j].imgURL));
 j++;
 
-setTimeout(displayP,1000);
+setTimeout(displayP,1500);
 
 };
 
