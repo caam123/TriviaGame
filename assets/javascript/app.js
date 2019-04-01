@@ -41,7 +41,7 @@ function decrement(){
 // --- Funcion display de preguntas + respuestas
 var lasPreguntas = [
     {
-        pregunta : "What is the capital City of Nevada?",
+        pregunta : "1. What is the capital City of Nevada?",
         respuesta : {
             a: ["Las Vegas", false],
             b: ["Reno", false],
@@ -51,16 +51,104 @@ var lasPreguntas = [
         correctAnswer: "Carson City",
     },
     {
-       pregunta : "What is the Capital City of Texas?",
+       pregunta : "2. What is the Capital City of California?",
        respuesta: {
-           a: ["Dallas", false],
-           b: ["Austin", true],
-           c: ["San Antonio", false],
+           a: ["Beverly Hills 90210", false],
+           b: ["Los Angeles", false],
+           c: ["Sacramento", true],
 
        },
-       imgURL: "assets/img/texas.png",
-       correctAnswer: "Austin"
+       imgURL: "assets/img/california.png",
+       correctAnswer: "Sacramento"
     },
+    {
+        pregunta : "3. What is the Capital City of Illinois?",
+        respuesta: {
+            a: ["Chicago", false],
+            b: ["Springfield", true],
+            c: ["Rockford", false],
+ 
+        },
+        imgURL: "assets/img/illinois.png",
+        correctAnswer: "Springfield"
+     },
+     {
+        pregunta : "4. What is the Capital City of Utah?",
+        respuesta: {
+            a: ["Salt Lake City", true],
+            b: ["West Jordan", false],
+            c: ["Provo", false],
+ 
+        },
+        imgURL: "assets/img/utah.png",
+        correctAnswer: "Salt Lake City"
+     },
+     {
+        pregunta : "5. What is the Capital City of Nuevo Mexico?",
+        respuesta: {
+            a: ["Santa Fe", true],
+            b: ["Albuquerque", false],
+            c: ["Las Cruces", false],
+ 
+        },
+        imgURL: "assets/img/nuevomexico.png",
+        correctAnswer: "Santa Fe"
+     },
+     {
+        pregunta : "6. What is the Capital City of Arizona?",
+        respuesta: {
+            a: ["Tucson", false],
+            b: ["Phoenix", true],
+            c: ["Scottsdale", false],
+ 
+        },
+        imgURL: "assets/img/arizona.png",
+        correctAnswer: "Phoenix"
+     },
+     {
+        pregunta : "7. What is the Capital City of Massachusetts?",
+        respuesta: {
+            a: ["Bristol", false],
+            b: ["Hampshire", false],
+            c: ["Boston", true],
+ 
+        },
+        imgURL: "assets/img/massa.png",
+        correctAnswer: "Boston"
+     },
+     {
+        pregunta : "8. What is the Capital City of Washington?",
+        respuesta: {
+            a: ["Seattle", false],
+            b: ["Olympia", true],
+            c: ["Washington D.C.", false],
+ 
+        },
+        imgURL: "assets/img/washington.png",
+        correctAnswer: "Olympia"
+     },
+     {
+        pregunta : "9. What is the Capital City of Nueva York?",
+        respuesta: {
+            a: ["Manhattan", false],
+            b: ["Nueva York", false],
+            c: ["Albany", true],
+ 
+        },
+        imgURL: "assets/img/nuevayork.png",
+        correctAnswer: "Albany"
+     },
+     {
+        pregunta : "10. What is the Capital City of Florida?",
+        respuesta: {
+            a: ["Miami", false],
+            b: ["Tallahassee", true],
+            c: ["Orlando", false],
+ 
+        },
+        imgURL: "assets/img/florida.png",
+        correctAnswer: "Tallahassee"
+     },
 ];
 
 
