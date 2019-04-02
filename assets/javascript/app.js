@@ -212,19 +212,19 @@ $(".imgAnswer").empty();
 
 
 if (dataCorrect === "false") {
-    $(".containerPregunta").append("<div class='respuesta col-md-6 col-12 align-self-center incorrect'>" + "Nope! The correct answer was " + lasPreguntas[j].correctAnswer + "</div");
+    $(".containerPregunta").append("<div class='respuesta col-md-6 col-12 align-self-center incorrect'>" + "Nope! It's " + lasPreguntas[j].correctAnswer + "</div");
     losses++;
 }else if (timer === 0){
-    $(".containerPregunta").append("<div class='respuesta col-md-6 col-12 align-self-center incorrect'>" + "Time's up! The correct answer was " + lasPreguntas[j].correctAnswer + "</div");
+    $(".containerPregunta").append("<div class='respuesta col-md-6 col-12 align-self-center incorrect'>" + "Time's up! It's " + lasPreguntas[j].correctAnswer + "</div");
     unanswered++;
 }else {
-    $(".containerPregunta").append("<div class='respuesta col-md-6 col-12 align-self-center correct'>" + "Yep! That's correct" + "</div");
+    $(".containerPregunta").append("<div class='respuesta col-md-6 col-12 align-self-center correct'>" + "Yep! Correct" + "</div");
     wins++;
 }
 $(".imgAnswer").append($("<img class='center'>").attr("src", lasPreguntas[j].imgURL));
 j++;
 
-setTimeout(displayP,1500);
+setTimeout(displayP,2000);
 
 };
 
